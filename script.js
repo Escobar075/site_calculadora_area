@@ -155,3 +155,13 @@ $('#btnClear').addEventListener('click',clearAll);
 
 renderFigures();
 setFigure(FIGURAS[0].id);
+
+// Menu hambúrguer no mobile
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.querySelector('.sidebar');
+
+if (menuToggle && sidebar) {
+  menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+  });
+}
