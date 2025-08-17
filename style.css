@@ -141,3 +141,31 @@
     margin-bottom: 12px;
   }
 }
+/* Botão de histórico no mobile */
+.history-toggle {
+  display: none;
+  background: var(--accent-2);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .history-toggle {
+    display: block;
+  }
+  .history {
+    display: none;
+  }
+  .history.open {
+    display: block;
+    margin-top: 12px;
+  }
+}
