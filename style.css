@@ -169,3 +169,16 @@
     margin-top: 12px;
   }
 }
+.shortcuts {
+  margin: 12px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Esconde atalhos no celular */
+@media (max-width: 768px) {
+  .shortcuts {
+    display: none;
+  }
+}
