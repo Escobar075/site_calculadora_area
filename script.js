@@ -179,10 +179,10 @@ function setFigure(id){
   setMethod(currentFigure.methods[0].id);
 
   // 🔽 Fecha o menu no celular depois de escolher uma figura
-  if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
+ /* if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
     sidebar.classList.remove('open');
   }
-}
+}*/
 // Histórico no mobile
 const historyToggle = document.getElementById('historyToggle');
 const historyBox = document.querySelector('.history');
@@ -192,4 +192,5 @@ if (historyToggle && historyBox) {
     historyBox.classList.toggle('open');
   });
 }
+
 
