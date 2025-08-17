@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora de Áreas • Tech Futurista</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Calculadora de Áreas</h1>
+        <div class="muted">Estilo tech futurista • resultados com 5 casas decimais</div>
+      </div>
+    </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSQNEVRFD3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-JSQNEVRFD3');
+    </script>
+  </header>
+
+  <aside class="sidebar" aria-label="Escolha de figuras">
+    <h3>Figuras</h3>
+    <div class="nav" id="figNav"></div>
+  </aside>
+
+  <main class="panel">
+    <div class="grid">
+      <div class="row">
+        <div class="section">
+          <label for="method">Modo de cálculo</label>
+          <select id="method"></select>
+        </div>
+        <div class="section">
+          <label>&nbsp;</label>
+          <div class="controls">
+            <button class="btn primary" id="btnCalc">Calcular</button>
+            <button class="btn ghost" id="btnClear">Limpar</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="inputs" class="row-3"></div>
+
+      <div class="hr"></div>
+
+      <div id="result" class="result" role="status" aria-live="polite">
+        <span class="hint">Pronto para calcular. Escolha um método e preencha os campos.</span>
+        <span class="value"></span>
+      </div>
+
+      <div class="hint">Dicas: valores devem ser positivos. Para ângulos, escolha a unidade correta (grau, radiano ou grado).</div>
+    </div>
+  </main>
+
+  <aside class="history">
+    <h3>Histórico</h3>
+    <ul id="historyList"></ul>
+  </aside>
+
+  <footer>
+    Feito com ✦ por você. Atalhos: <span class="kbd">1–5</span> trocam de figura; <span class="kbd">Enter</span> calcula.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
