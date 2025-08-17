@@ -165,3 +165,11 @@ if (menuToggle && sidebar) {
     sidebar.classList.toggle('open');
   });
 }
+// Atalho: pressionar Enter executa o cálculo
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault(); // evita submit ou comportamento padrão
+    calculate();
+  }
+});
+
