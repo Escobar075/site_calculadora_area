@@ -183,4 +183,13 @@ function setFigure(id){
     sidebar.classList.remove('open');
   }
 }
+// Histórico no mobile
+const historyToggle = document.getElementById('historyToggle');
+const historyBox = document.querySelector('.history');
+
+if (historyToggle && historyBox) {
+  historyToggle.addEventListener('click', () => {
+    historyBox.classList.toggle('open');
+  });
+}
 
