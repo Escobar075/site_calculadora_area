@@ -89,6 +89,11 @@ function setFigure(id){
   $$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.id===currentFigure.id));
   renderMethods();
   setMethod(currentFigure.methods[0].id);
+
+  // Fecha o menu no celular depois de escolher uma figura
+  if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
+    sidebar.classList.remove('open');
+  }
 }
 
 function renderMethods(){
@@ -172,17 +177,6 @@ document.addEventListener('keydown', (e) => {
     calculate();
   }
 });
-function setFigure(id){
-  currentFigure=FIGURAS.find(f=>f.id===id)||FIGURAS[0];
-  $$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.id===currentFigure.id));
-  renderMethods();
-  setMethod(currentFigure.methods[0].id);
-
-  // 🔽 Fecha o menu no celular depois de escolher uma figura
-  if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
-    sidebar.classList.remove('open');
-  }
-}
 // Histórico no mobile
 const historyToggle = document.getElementById('historyToggle');
 const historyBox = document.querySelector('.history');
@@ -192,6 +186,7 @@ if (historyToggle && historyBox) {
     historyBox.classList.toggle('open');
   });
 }
+
 
 
 
