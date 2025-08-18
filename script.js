@@ -62,6 +62,7 @@ const FIGURAS = [
   ]},
 ];
 
+// Seletores principais
 const figNav = $('#figNav');
 const methodSel = $('#method');
 const inputs = $('#inputs');
@@ -69,6 +70,12 @@ const resBox = $('#result');
 const resHint = resBox.querySelector('.hint');
 const resValue = resBox.querySelector('.value');
 const historyList = $('#historyList');
+
+// Botões / caixas extras
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.querySelector('.sidebar');
+const historyToggle = document.getElementById('historyToggle');
+const historyBox = document.querySelector('.history');
 
 let currentFigure, currentMethod;
 
@@ -154,41 +161,33 @@ function addHistory(text){
   if(historyList.children.length>20) historyList.removeChild(historyList.lastChild);
 }
 
+// Eventos
 methodSel.addEventListener('change',e=>setMethod(e.target.value));
 $('#btnCalc').addEventListener('click',calculate);
 $('#btnClear').addEventListener('click',clearAll);
 
+// Render inicial
 renderFigures();
 setFigure(FIGURAS[0].id);
 
 // Menu hambúrguer no mobile
-const menuToggle = document.getElementById('menuToggle');
-const sidebar = document.querySelector('.sidebar');
-
 if (menuToggle && sidebar) {
   menuToggle.addEventListener('click', () => {
     sidebar.classList.toggle('open');
   });
 }
+
 // Atalho: pressionar Enter executa o cálculo
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
-    e.preventDefault(); // evita submit ou comportamento padrão
+    e.preventDefault();
     calculate();
   }
 });
-// Histórico no mobile
-const historyToggle = document.getElementById('historyToggle');
-const historyBox = document.querySelector('.history');
 
+// Histórico no mobile
 if (historyToggle && historyBox) {
   historyToggle.addEventListener('click', () => {
     historyBox.classList.toggle('open');
   });
 }
-
-
-
-
-
-
