@@ -93,6 +93,11 @@
     top: 0;
     width: 100%;
     margin-bottom: 12px;
+    display: none; /* escondida por padrão */
+  }
+  .sidebar.open {
+    display: block;
+    margin-bottom: 12px;
   }
 
   .panel {
@@ -104,6 +109,11 @@
     max-height: 200px;
     overflow-y: auto;
     margin-top: 12px;
+    display: none; /* escondida por padrão */
+  }
+  .history.open {
+    display: block;
+    margin-top: 12px;
   }
 
   /* Inputs e botões maiores no mobile */
@@ -113,71 +123,14 @@
     font-size: 16px;
     padding: 14px;
   }
-}
 
-/* Botão de menu hamburguer */
-.menu-toggle {
-  display: none;
-  background: var(--accent);
-  color: #000;
-  font-weight: 700;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-  .sidebar {
-    display: none;
-  }
-  .sidebar.open {
-    display: block;
-    margin-bottom: 12px;
-  }
-}
-/* Botão de histórico no mobile */
-.history-toggle {
-  display: none;
-  background: var(--accent-2);
-  color: #fff;
-  font-weight: 700;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 12px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
+  /* Mostrar botões no mobile */
+  .menu-toggle,
   .history-toggle {
     display: block;
   }
-  .history {
-    display: none;
-  }
-  .history.open {
-    display: block;
-    margin-top: 12px;
-  }
-}
-.shortcuts {
-  margin: 12px 0;
-  text-align: center;
-  font-size: 13px;
-  color: var(--muted);
-}
 
-/* Esconde atalhos no celular */
-@media (max-width: 768px) {
+  /* Esconder atalhos no celular */
   .shortcuts {
     display: none;
   }
