@@ -178,7 +178,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 // Histórico no mobile
-const historyToggle = document.getElementById('historyToggle');
+/*const historyToggle = document.getElementById('historyToggle');
 const historyBox = document.querySelector('.history');
 
 if (historyToggle && historyBox) {
@@ -186,6 +186,7 @@ if (historyToggle && historyBox) {
     historyBox.classList.toggle('open');
   });
 }
+
 
 
 
