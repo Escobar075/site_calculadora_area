@@ -191,3 +191,34 @@ if (historyToggle && historyBox) {
     historyBox.classList.toggle('open');
   });
 }
+
+function createMobileButtons() {
+  if (window.innerWidth <= 768) {
+    if (!document.getElementById('menuToggle')) {
+      const btnMenu = document.createElement('button');
+      btnMenu.id = 'menuToggle';
+      btnMenu.className = 'menu-toggle';
+      btnMenu.textContent = '☰ Figuras';
+      document.body.insertBefore(btnMenu, document.querySelector('.sidebar'));
+      
+      btnMenu.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+    }
+
+    if (!document.getElementById('historyToggle')) {
+      const btnHist = document.createElement('button');
+      btnHist.id = 'historyToggle';
+      btnHist.className = 'history-toggle';
+      btnHist.textContent = '🕑 Histórico';
+      document.body.insertBefore(btnHist, document.querySelector('.history'));
+      
+      btnHist.addEventListener('click', () => {
+        historyBox.classList.toggle('open');
+      });
+    }
+  }
+}
+
+window.addEventListener('resize', createMobileButtons);
+window.addEventListener('load', createMobileButtons);
