@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Calculadora de Áreas</title>
+  <title>Calculadora de Áreas • Tech Futurista</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,7 +12,7 @@
       <div class="logo" aria-hidden="true"></div>
       <div>
         <h1>Calculadora de Áreas</h1>
-        <div class="muted">Resultados com 5 casas decimais</div>
+        <div class="muted">Estilo tech futurista • resultados com 5 casas decimais</div>
       </div>
     </div>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSQNEVRFD3"></script>
@@ -24,8 +24,11 @@
       gtag('config', 'G-JSQNEVRFD3');
     </script>
   </header>
-  <button class="menu-toggle" id="menuToggle">☰ Figuras</button>
   
+  <button class="hamburger" id="menuToggle" aria-label="Abrir menu de figuras">
+    ☰ Figuras
+  </button>
+
   <aside class="sidebar" aria-label="Escolha de figuras">
     <h3>Figuras</h3>
     <div class="nav" id="figNav"></div>
@@ -55,16 +58,16 @@
         <span class="hint">Pronto para calcular. Escolha um método e preencha os campos.</span>
         <span class="value"></span>
       </div>
+
+      <div class="hint">Dicas: valores devem ser positivos. Para ângulos, escolha a unidade correta (grau, radiano ou grado).</div>
     </div>
   </main>
-  
-  <button class="history-toggle" id="historyToggle">🕑 Histórico</button>
-  
+
   <aside class="history">
     <h3>Histórico</h3>
     <ul id="historyList"></ul>
   </aside>
-  
+
   <div class="shortcuts">
     Atalhos: <span class="kbd">1–5</span> trocam de figura; <span class="kbd">Enter</span> calcula.
   </div>
