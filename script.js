@@ -79,7 +79,14 @@ function renderFigures(){
     btn.innerHTML=`<span>${f.label}</span><span class="tag">${f.tag||''}</span>`;
     btn.dataset.id=f.id;
     if(i===0) btn.classList.add('active');
-    btn.addEventListener('click',()=>setFigure(f.id));
+    btn.addEventListener('click', () => {
+      setFigure(f.id);
+
+      // Fecha menu no celular
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('open');
+      }
+    });
     figNav.appendChild(btn);
   });
 }
@@ -169,3 +176,5 @@ const sidebar = document.querySelector('.sidebar');
 menuToggle.addEventListener('click', () => {
   sidebar.classList.toggle('open');
 });
+
+
