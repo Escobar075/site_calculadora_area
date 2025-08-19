@@ -62,7 +62,6 @@ const FIGURAS = [
   ]},
 ];
 
-// Seletores principais
 const figNav = $('#figNav');
 const methodSel = $('#method');
 const inputs = $('#inputs');
@@ -70,12 +69,6 @@ const resBox = $('#result');
 const resHint = resBox.querySelector('.hint');
 const resValue = resBox.querySelector('.value');
 const historyList = $('#historyList');
-
-// Botões / caixas extras
-const menuToggle = document.getElementById('menuToggle');
-const sidebar = document.querySelector('.sidebar');
-const historyToggle = document.getElementById('historyToggle');
-const historyBox = document.querySelector('.history');
 
 let currentFigure, currentMethod;
 
@@ -96,11 +89,6 @@ function setFigure(id){
   $$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.id===currentFigure.id));
   renderMethods();
   setMethod(currentFigure.methods[0].id);
-
-  // Fecha o menu no celular depois de escolher uma figura
-  if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
-    sidebar.classList.remove('open');
-  }
 }
 
 function renderMethods(){
@@ -161,64 +149,23 @@ function addHistory(text){
   if(historyList.children.length>20) historyList.removeChild(historyList.lastChild);
 }
 
-// Eventos
 methodSel.addEventListener('change',e=>setMethod(e.target.value));
 $('#btnCalc').addEventListener('click',calculate);
 $('#btnClear').addEventListener('click',clearAll);
 
-// Render inicial
 renderFigures();
 setFigure(FIGURAS[0].id);
 
-// Menu hambúrguer no mobile
-if (menuToggle && sidebar) {
-  menuToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('open');
-  });
-}
-
-// Atalho: pressionar Enter executa o cálculo
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
     calculate();
   }
 });
+// Menu hamburguer (mobile)
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.querySelector('.sidebar');
 
-// Histórico no mobile
-if (historyToggle && historyBox) {
-  historyToggle.addEventListener('click', () => {
-    historyBox.classList.toggle('open');
-  });
-}
-
-function createMobileButtons() {
-  if (window.innerWidth <= 768) {
-    if (!document.getElementById('menuToggle')) {
-      const btnMenu = document.createElement('button');
-      btnMenu.id = 'menuToggle';
-      btnMenu.className = 'menu-toggle';
-      btnMenu.textContent = '☰ Figuras';
-      document.body.insertBefore(btnMenu, document.querySelector('.sidebar'));
-      
-      btnMenu.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-      });
-    }
-
-    if (!document.getElementById('historyToggle')) {
-      const btnHist = document.createElement('button');
-      btnHist.id = 'historyToggle';
-      btnHist.className = 'history-toggle';
-      btnHist.textContent = '🕑 Histórico';
-      document.body.insertBefore(btnHist, document.querySelector('.history'));
-      
-      btnHist.addEventListener('click', () => {
-        historyBox.classList.toggle('open');
-      });
-    }
-  }
-}
-
-window.addEventListener('resize', createMobileButtons);
-window.addEventListener('load', createMobileButtons);
+menuToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+});
