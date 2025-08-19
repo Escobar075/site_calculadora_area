@@ -73,65 +73,37 @@
     .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:#0a1426; border:1px solid rgba(0,224,255,.25); padding:2px 6px; border-radius:6px}
 
     @media (max-width: 1280px){ body{grid-template-columns:1fr} .row, .row-3{grid-template-columns:1fr} .history{max-height:300px} }
+/* Botão hambúrguer só aparece no celular */
+.hamburger {
+  display: none;
+  background: linear-gradient(135deg, rgba(0,224,255,.15), rgba(122,92,255,.15));
+  color: var(--text);
+  border: 1px solid rgba(0,224,255,.25);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
 
-/* Ajustes para telas menores que 768px */
+/* Mobile */
 @media (max-width: 768px) {
   body {
-    grid-template-columns: 1fr;
-    padding: 12px;
-    gap: 16px;
+    grid-template-columns: 1fr; /* tira sidebar fixa */
   }
-
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
   .sidebar {
-    position: relative;
-    top: 0;
-    width: 100%;
-    margin-bottom: 12px;
-    display: none; /* escondida por padrão */
+    display: none; /* esconde menu lateral */
+    position: fixed;
+    top: 60px;
+    left: 12px;
+    right: 12px;
+    z-index: 1000;
   }
   .sidebar.open {
-    display: block;
-    margin-bottom: 12px;
+    display: block; /* mostra quando clicado */
   }
-
-  .panel {
-    min-height: auto;
-    padding: 16px;
-  }
-
-  .history {
-    max-height: 200px;
-    overflow-y: auto;
-    margin-top: 12px;
-    display: none; /* escondida por padrão */
-  }
-  .history.open {
-    display: block;
-    margin-top: 12px;
-  }
-
-  /* Inputs e botões maiores no mobile */
-  select,
-  input[type="number"],
-  .btn {
-    font-size: 16px;
-    padding: 14px;
-  }
-
-  /* Mostrar botões no mobile */
-  .menu-toggle,
-  .history-toggle {
-    display: block;
-  }
-
-  /* Esconder atalhos no celular */
-  .shortcuts {
-    display: none;
+  .hamburger {
+    display: block; /* botão só aparece no celular */
   }
 }
